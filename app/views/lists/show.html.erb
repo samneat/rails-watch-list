@@ -1,6 +1,7 @@
+  <div class="banner mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=@list.movies.first&.poster_url || "http://everpresent.com/wp-content/uploads/2016/05/IMG_3853.jpg" %>)">
+    <h1><%= @list.name.capitalize %></h1>
+  </div>
 <div class="container">
-  <h1><%= @list.name.capitalize %></h1>
-  <hr>
   <h3>Movies</h3>
   <% @list.movies.each do |movie| %>
     <%= movie.title %>
