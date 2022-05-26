@@ -1,7 +1,23 @@
-<h1>list page</h1>
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
-  <% end %>
-</ul>
-<%= link_to "Create New List", new_list_path %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://cdn.wallpapersafari.com/69/52/L5EQyw.jpg);">
+  <h1 class="text-center">Save any kind of movie!</h1>
+  <%# <p>Change your life and learn to code at one of our campuses around the world.</p>
+  <a class="btn btn-flat" href="#">Apply now</a> %>
+</div>
+<div class="container mt-5">
+  <h1 class="m-3">My Lists</h1>
+
+
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list) do%>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.first&.poster_url || "http://everpresent.com/wp-content/uploads/2016/05/IMG_3853.jpg" %>)">
+            <%= list.name %>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+
+  <%= link_to "Create New List", new_list_path, class: 'btn btn-danger my-5' %>
+</div>

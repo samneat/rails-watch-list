@@ -1,7 +1,18 @@
-<h1><%= @list.name.capitalize %></h1>
-<hr>
-<h3>Movies</h3>
-
-<%= link_to 'All Lists', lists_path %>
-<br>
-<%= link_to 'Create New Bookamrk', new_list_bookmark_path(@list) %>
+<div class="container">
+  <h1><%= @list.name.capitalize %></h1>
+  <hr>
+  <h3>Movies</h3>
+  <% @list.movies.each do |movie| %>
+    <%= movie.title %>
+    <br>
+    <%= movie.overview %>
+    <br>
+    <%= movie.rating %>
+    <br>
+    <%= movie.poster_url %>
+  <% end %>
+  <br>
+  <%= link_to 'All Lists', lists_path %>
+  <br>
+  <%= link_to 'Create New Bookamrk', new_list_bookmark_path(@list) %>
+</div>
